@@ -28,3 +28,15 @@ jobs:
           path: ./
           base: ${{ github.event.repository.default_branch }}
           head: HEAD
+      
+      - name: Dependency Scanning
+        run: npm audit --audit-level=high
+        
+      - name: Run Unit Tests
+        run: npm run test --workspaces --if-present
+        
+      - name: CD Placeholder - Build Image
+        run: echo "Docker build and AWS ECR push commands will be configured here"
+        
+      - name: CD Placeholder - Deploy to AWS Preview
+        run: echo "ECS Fargate preview deployment commands will be configured here"
